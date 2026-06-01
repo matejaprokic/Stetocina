@@ -16,6 +16,9 @@ public class NPCBehaviour : MonoBehaviour
     int patrolIndex;
     bool chasing;
     float chaseTimer;
+    private bool isAttacking = false;
+
+    int catches = 0;
 
     void Update()
     {
@@ -33,16 +36,34 @@ public class NPCBehaviour : MonoBehaviour
         // CHASE
         if (chasing)
         {
-            animator.SetBool("IsMoving", agent.velocity.magnitude > 0.1f);
+            animator.SetBool("IsChasing", true);
+
+            animator.SetFloat(
+                "Speed",
+                agent.velocity.magnitude
+            );
 
             agent.SetDestination(player.position);
 
             chaseTimer -= Time.deltaTime;
 
-            if (dist < catchDistance)
+            if (dist < catchDistance && !isAttacking)
             {
+                isAttacking = true;
+
+                agent.isStopped = true;
+
                 animator.SetTrigger("Catch");
+
                 chasing = false;
+
+                catches++;
+
+                if (catches >= 3)
+                {
+                    // lose meni
+                }
+
                 return;
             }
 
@@ -58,10 +79,11 @@ public class NPCBehaviour : MonoBehaviour
 
         Patrol();
 
-        animator.SetFloat(
-            "Speed",
-            agent.velocity.magnitude
-        );
+        if (!isAttacking)
+        {
+            animator.SetFloat("Speed", agent.velocity.magnitude);
+        }
+    
     }
 
     void Patrol()
@@ -86,5 +108,11 @@ public class NPCBehaviour : MonoBehaviour
     public void OnTaskCompleted()
     {
         animator.SetTrigger("TaskDone");
+    }
+
+    public void EndAttack()
+    {
+        isAttacking = false;
+        agent.isStopped = false;
     }
 }
