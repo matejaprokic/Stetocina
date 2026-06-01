@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
  */
 
+
 namespace StarterAssets
 {
     [RequireComponent(typeof(CharacterController))]
@@ -14,6 +15,8 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
+        public bool canMove = true;
+
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -158,6 +161,15 @@ namespace StarterAssets
         private void Update()
         {
             _hasAnimator = TryGetComponent(out _animator);
+
+            if (!canMove)
+            {
+                // opcionalno: reset speed animacije
+                if (_animator != null)
+                    _animator.SetFloat("Speed", 0);
+
+                return;
+            }
 
             JumpAndGravity();
             GroundedCheck();

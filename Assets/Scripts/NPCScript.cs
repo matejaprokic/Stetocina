@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
+using StarterAssets;
 
 public class NPCBehaviour : MonoBehaviour
 {
@@ -16,12 +18,19 @@ public class NPCBehaviour : MonoBehaviour
     int patrolIndex;
     bool chasing;
     float chaseTimer;
+
     private bool isAttacking = false;
+    bool attackInProgress = false;
+    float attackCooldown = 0f;
+    public float attackCooldownTime = 2f;
 
     int catches = 0;
 
     void Update()
     {
+        if (attackCooldown > 0)
+            attackCooldown -= Time.deltaTime;
+
         float dist =
             Vector3.Distance(transform.position,
             player.position);
@@ -47,13 +56,9 @@ public class NPCBehaviour : MonoBehaviour
 
             chaseTimer -= Time.deltaTime;
 
-            if (dist < catchDistance && !isAttacking)
+            if (dist < catchDistance && !isAttacking && attackCooldown <= 0f)
             {
-                isAttacking = true;
-
-                agent.isStopped = true;
-
-                animator.SetTrigger("Catch");
+                StartCoroutine(AttackRoutine());
 
                 chasing = false;
 
@@ -114,5 +119,41 @@ public class NPCBehaviour : MonoBehaviour
     {
         isAttacking = false;
         agent.isStopped = false;
+    }
+
+    IEnumerator AttackRoutine()
+    {
+        isAttacking = true;
+        attackInProgress = true;
+
+        agent.isStopped = true;
+
+        animator.SetTrigger("Catch");
+
+        // zakljucaj vranu
+        StarterAssets.ThirdPersonController playerController = player.GetComponent<StarterAssets.ThirdPersonController>();
+
+        if (playerController != null)
+        {
+            playerController.canMove = false;
+        }
+
+        // trajanje attack animacije
+        yield return new WaitForSeconds(1.2f);
+
+        // tek sad se racuna pogodak
+        GameManager.Instance.CrowCaught();
+
+        // otkljucaj vranu
+        if (playerController != null)
+        {
+            playerController.canMove = true;
+        }
+
+        agent.isStopped = false;
+
+        attackCooldown = attackCooldownTime;
+        isAttacking = false;
+        
     }
 }
