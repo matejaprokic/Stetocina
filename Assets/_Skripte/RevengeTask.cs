@@ -31,6 +31,13 @@ public class RevengeTask : MonoBehaviour
         if (dist > interactDistance)
             return;
 
+        TaskBounce bounce = GetComponent<TaskBounce>();
+
+        if (bounce != null)
+        {
+            bounce.CompleteTask();
+        }
+
         done = true;
 
         GameManager.Instance.TaskCompleted(taskType);
