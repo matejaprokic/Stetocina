@@ -87,4 +87,6 @@ public class GameManager : MonoBehaviour
             WinGame();
         }
     }
+
+ 
 }
