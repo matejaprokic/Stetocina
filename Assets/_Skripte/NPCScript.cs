@@ -150,7 +150,7 @@ public class NPCBehaviour : MonoBehaviour
         }
 
         // trajanje attack animacije
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(2.2f);
 
         // tek sad se racuna pogodak
         GameManager.Instance.CrowCaught();
