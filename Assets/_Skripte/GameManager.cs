@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
 
     public NPCBehaviour npc;
 
+    public AudioClip winSound;
+    public AudioClip loseSound;
+
     void Awake()
     {
         Instance = this;
@@ -57,12 +60,16 @@ public class GameManager : MonoBehaviour
         losePanel.SetActive(true);
 
         Time.timeScale = 0f;
+
+        AudioManager.Instance.PlaySFX(loseSound);
     }
 
     void WinGame()
     {
         winPanel.SetActive(true);
         Time.timeScale = 0f;
+
+        AudioManager.Instance.PlaySFX(winSound);
     }
 
     public void RestartGame()

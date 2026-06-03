@@ -28,6 +28,10 @@ public class NPCBehaviour : MonoBehaviour
 
     int catches = 0;
 
+    public AudioClip attackSound;
+    public AudioClip defeatedSound;
+    public AudioClip laughSound;
+
     void Update()
     {
         if (reactingToTask)
@@ -132,17 +136,27 @@ public class NPCBehaviour : MonoBehaviour
         agent.isStopped = false;
     }
 
+    //public void PlayAttackSound()
+    //{
+    //    AudioManager.Instance.PlaySFX(attackSound);
+    //}
+
     IEnumerator AttackRoutine()
     {
         isAttacking = true;
         //attackInProgress = true;
 
+        
+
         agent.isStopped = true;
 
         animator.SetTrigger("Catch");
 
+        AudioManager.Instance.PlaySFX(attackSound);
+
         // zakljucaj vranu
         StarterAssets.ThirdPersonController playerController = player.GetComponent<StarterAssets.ThirdPersonController>();
+
 
         if (playerController != null)
         {
@@ -151,6 +165,7 @@ public class NPCBehaviour : MonoBehaviour
 
         // trajanje attack animacije
         yield return new WaitForSeconds(2.2f);
+        
 
         // tek sad se racuna pogodak
         GameManager.Instance.CrowCaught();
@@ -184,6 +199,9 @@ public class NPCBehaviour : MonoBehaviour
 
         animator.SetTrigger("TaskDone");
 
+        AudioManager.Instance.PlaySFX(defeatedSound);
+        AudioManager.Instance.PlaySFX(laughSound);
+
         yield return new WaitForSeconds(6.7f);
 
         agent.velocity = Vector3.zero;
@@ -192,4 +210,6 @@ public class NPCBehaviour : MonoBehaviour
 
         reactingToTask = false;
     }
+
+    
 }

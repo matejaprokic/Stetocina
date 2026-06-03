@@ -48,6 +48,7 @@ public class UIManager : MonoBehaviour
 
     public void OpenLevels()
     {
+        AudioManager.Instance.PlayUIClick();
         HideAllMenus();
         levelSelectPanel.SetActive(true);
     }
@@ -97,6 +98,7 @@ public class UIManager : MonoBehaviour
 
     public void PauseGame()
     {
+        AudioManager.Instance.PlayUIClick();
         pausePanel.SetActive(true);
         Time.timeScale = 0f;
     }
