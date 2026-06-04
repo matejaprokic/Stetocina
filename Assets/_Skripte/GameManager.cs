@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -32,8 +32,8 @@ public class GameManager : MonoBehaviour
 
     void UpdateUI()
     {
-        crowText.text = "Vrana: " + crowHits + "/3";
-        npcText.text = "Covek: " + npcHits + "/3";
+        crowText.text = "Čovek: " + crowHits + "/3";
+        npcText.text = "Vrana: " + npcHits + "/3";
     }
 
     public void CrowCaught()
@@ -62,6 +62,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
 
         AudioManager.Instance.PlaySFX(loseSound);
+
+    
     }
 
     void WinGame()
