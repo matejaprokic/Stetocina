@@ -12,7 +12,14 @@ public class SettingsUI : MonoBehaviour
 
     void Start()
     {
-        Refresh();
+        if (!UIManager.startGameDirectly)
+        {
+            ResetToDefault();
+        }
+        else
+        {
+            Refresh();
+        }
     }
 
     public void Refresh()
@@ -61,5 +68,28 @@ public class SettingsUI : MonoBehaviour
     public void OnSFXToggleChanged(bool value)
     {
         AudioManager.Instance.ToggleSFX(value);
+    }
+
+    public void ResetToDefault()
+    {
+        masterSlider.value = 1f;
+        musicSlider.value = 1f;
+        sfxSlider.value = 1f;
+
+        musicToggle.isOn = true;
+        sfxToggle.isOn = true;
+
+        AudioManager.Instance.SetMasterVolume(1f);
+        AudioManager.Instance.SetMusicVolume(1f);
+        AudioManager.Instance.SetSFXVolume(1f);
+
+        PlayerPrefs.SetFloat("master", 1f);
+        PlayerPrefs.SetFloat("music", 1f);
+        PlayerPrefs.SetFloat("sfx", 1f);
+
+        PlayerPrefs.SetInt("musicEnabled", 1);
+        PlayerPrefs.SetInt("sfxEnabled", 1);
+
+        PlayerPrefs.Save();
     }
 }

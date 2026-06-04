@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     
 
     public static bool startGameDirectly = false;
+    
 
     void Start()
     {
@@ -70,6 +71,8 @@ public class UIManager : MonoBehaviour
     public void StartLevel1()
     {
         startGameDirectly = true;
+
+        
 
         Time.timeScale = 1f;
 
