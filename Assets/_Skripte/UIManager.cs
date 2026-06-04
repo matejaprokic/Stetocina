@@ -5,12 +5,12 @@ public class UIManager : MonoBehaviour
 {
     public GameObject pausePanel;
     public GameObject restartConfirmPanel;
-    public GameObject gameSettingsPanel;
+    public GameObject settingsPanel;
 
     public GameObject mainPanel;
     public GameObject levelSelectPanel;
     public GameObject aboutPanel;
-    public GameObject mainSettingsPanel;
+    
 
     public static bool startGameDirectly = false;
 
@@ -31,11 +31,11 @@ public class UIManager : MonoBehaviour
         mainPanel.SetActive(false);
         levelSelectPanel.SetActive(false);
         aboutPanel.SetActive(false);
-        mainSettingsPanel.SetActive(false);
+        
 
         pausePanel.SetActive(false);
         restartConfirmPanel.SetActive(false);
-        gameSettingsPanel.SetActive(false);
+        settingsPanel.SetActive(false);
     }
 
     public void ShowMainMenu()
@@ -59,11 +59,7 @@ public class UIManager : MonoBehaviour
         aboutPanel.SetActive(true);
     }
 
-    public void OpenMainSettings()
-    {
-        HideAllMenus();
-        mainSettingsPanel.SetActive(true);
-    }
+    
 
     public void BackToMain()
     {
@@ -84,13 +80,13 @@ public class UIManager : MonoBehaviour
 
     public void OpenGameSettings()
     {
-        gameSettingsPanel.SetActive(true);
+        settingsPanel.SetActive(true);
         Time.timeScale = 0f;
     }
 
     public void CloseGameSettings()
     {
-        gameSettingsPanel.SetActive(false);
+        settingsPanel.SetActive(false);
         Time.timeScale = 1f;
     }
 

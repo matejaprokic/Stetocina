@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("Music")]
     public AudioClip backgroundMusic;
+    float targetMaster = 1f;
 
     void Awake()
     {
@@ -28,9 +29,15 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         Debug.Log("AudioManager Start called");
+
+        AudioListener.volume = PlayerPrefs.GetFloat("master", 1f);
+        
+        
+
         musicSource.clip = backgroundMusic;
         musicSource.loop = true;
         musicSource.Play();
+       
     }
 
     public void PlaySFX(AudioClip clip)
@@ -57,4 +64,37 @@ public class AudioManager : MonoBehaviour
     //    musicSource = GameObject.Find("MusicAudioSource")?.GetComponent<AudioSource>();
     //    sfxSource = GameObject.Find("SFXAudioSource")?.GetComponent<AudioSource>();
     //}
+
+    public void SetMasterVolume(float value)
+    {
+        targetMaster = value;
+        PlayerPrefs.SetFloat("master", value);
+    }
+
+    public void SetMusicVolume(float value)
+    {
+        musicSource.volume = value;
+        PlayerPrefs.SetFloat("music", value);
+    }
+
+    public void SetSFXVolume(float value)
+    {
+        sfxSource.volume = value;
+        PlayerPrefs.SetFloat("sfx", value);
+    }
+
+    public void ToggleMusic(bool isOn)
+    {
+        musicSource.mute = !isOn;
+    }
+
+    public void ToggleSFX(bool isOn)
+    {
+        sfxSource.mute = !isOn;
+    }
+
+    
+
+
+
 }
