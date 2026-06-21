@@ -83,7 +83,21 @@ public class GameManager : MonoBehaviour
         );
     }
 
-    public void TaskCompleted(RevengeTask.TaskType type)
+    //public void TaskCompleted(RevengeTask.TaskType type)
+    //{
+    //    npcHits++;
+
+    //    UpdateUI();
+
+    //    npc.ReactToTask();
+
+    //    if (npcHits >= maxHits)
+    //    {
+    //        WinGame();
+    //    }
+    //}
+
+    public void TaskCompleted()
     {
         npcHits++;
 
@@ -97,5 +111,5 @@ public class GameManager : MonoBehaviour
         }
     }
 
- 
+
 }

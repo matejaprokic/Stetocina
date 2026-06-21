@@ -12,35 +12,19 @@ public class VranaTapInput : MonoBehaviour
 
     void Update()
     {
-        // PC klik
-        if (Mouse.current != null &&
-            Mouse.current.leftButton.wasPressedThisFrame)
+        if (Input.GetMouseButtonDown(0))
         {
-            HandleTap(Mouse.current.position.ReadValue());
-        }
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
-        // Telefon touch
-        if (Touchscreen.current != null &&
-            Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
-        {
-            HandleTap(
-                Touchscreen.current.primaryTouch.position.ReadValue()
-            );
-        }
-    }
-
-    void HandleTap(Vector2 screenPos)
-    {
-        Ray ray = cam.ScreenPointToRay(screenPos);
-
-        if (Physics.Raycast(ray, out RaycastHit hit))
-        {
-            RevengeTask task =
-                hit.collider.GetComponentInParent<RevengeTask>();
-
-            if (task != null)
+            if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                task.DoTask();
+                IInteractable interactable =
+                    hit.collider.GetComponent<IInteractable>();
+
+                if (interactable != null)
+                {
+                    interactable.Interact();
+                }
             }
         }
     }
