@@ -10,13 +10,27 @@ public class UIManager : MonoBehaviour
     public GameObject mainPanel;
     public GameObject levelSelectPanel;
     public GameObject aboutPanel;
-    
+
+    public GameObject mobileControls;
+
+    public GameObject winPanel;
+    public GameObject losePanel;
+
 
     public static bool startGameDirectly = false;
-    
+
+    public static UIManager Instance;
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
+        Debug.Log("UIManager object: " + gameObject.name);
+        Debug.Log("mobileControls: " + mobileControls);
+
         if (startGameDirectly)
         {
             StartLevel1(); 
@@ -41,6 +55,8 @@ public class UIManager : MonoBehaviour
 
     public void ShowMainMenu()
     {
+        mobileControls.SetActive(false);
+
         Time.timeScale = 0f;
 
         HideAllMenus();
@@ -49,6 +65,8 @@ public class UIManager : MonoBehaviour
 
     public void OpenLevels()
     {
+        mobileControls.SetActive(false);
+
         AudioManager.Instance.PlayUIClick();
         HideAllMenus();
         levelSelectPanel.SetActive(true);
@@ -56,6 +74,9 @@ public class UIManager : MonoBehaviour
 
     public void OpenAbout()
     {
+        Debug.Log("OPEN ABOUT");
+        mobileControls.SetActive(false);
+
         HideAllMenus();
         aboutPanel.SetActive(true);
     }
@@ -64,12 +85,16 @@ public class UIManager : MonoBehaviour
 
     public void BackToMain()
     {
+        mobileControls.SetActive(false);
+
         HideAllMenus();
         mainPanel.SetActive(true);
     }
 
     public void StartLevel1()
     {
+        mobileControls.SetActive(true);
+
         startGameDirectly = true;
 
         
@@ -83,12 +108,16 @@ public class UIManager : MonoBehaviour
 
     public void OpenGameSettings()
     {
+        mobileControls.SetActive(false);
+
         settingsPanel.SetActive(true);
         Time.timeScale = 0f;
     }
 
     public void CloseGameSettings()
     {
+        mobileControls.SetActive(true);
+
         settingsPanel.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -97,6 +126,8 @@ public class UIManager : MonoBehaviour
 
     public void PauseGame()
     {
+        mobileControls.SetActive(false);
+
         AudioManager.Instance.PlayUIClick();
         pausePanel.SetActive(true);
         Time.timeScale = 0f;
@@ -104,24 +135,32 @@ public class UIManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        mobileControls.SetActive(true);
+
         pausePanel.SetActive(false);
         Time.timeScale = 1f;
     }
 
     public void AskRestart()
     {
+        mobileControls.SetActive(false);
+
         restartConfirmPanel.SetActive(true);
         Time.timeScale = 0f;
     }
 
     public void CancelRestart()
     {
+        mobileControls.SetActive(true);
+
         restartConfirmPanel.SetActive(false);
         Time.timeScale = 1f;
     }
 
     public void RestartGame()
     {
+        mobileControls.SetActive(true);
+
         startGameDirectly = true; 
 
         Time.timeScale = 1f;
@@ -131,6 +170,8 @@ public class UIManager : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        mobileControls.SetActive(false);
+
         startGameDirectly = false;
 
         Time.timeScale = 1f;
@@ -145,5 +186,17 @@ public class UIManager : MonoBehaviour
         Application.Quit();
 
         Debug.Log("Exit Game");
+    }
+
+    public void ShowWinPanel()
+    {
+        mobileControls.SetActive(false);
+        winPanel.SetActive(true);
+    }
+
+    public void ShowLosePanel()
+    {
+        mobileControls.SetActive(false);
+        losePanel.SetActive(true);
     }
 }

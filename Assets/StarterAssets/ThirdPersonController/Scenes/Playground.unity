@@ -1475,7 +1475,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1800505687}
+      - m_Target: {fileID: 881747637}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: PauseGame
         m_Mode: 1
@@ -4637,7 +4637,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1800505687}
+      - m_Target: {fileID: 881747637}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: CancelRestart
         m_Mode: 1
@@ -5137,7 +5137,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1800505687}
+      - m_Target: {fileID: 881747637}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -5282,7 +5282,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1800505687}
+      - m_Target: {fileID: 881747637}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: OpenGameSettings
         m_Mode: 1
@@ -7457,8 +7457,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1188557843}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 881747637}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
@@ -10072,6 +10072,59 @@ LightProbeGroup:
   - {x: 7.1518564, y: 2.7763042, z: -11.2319765}
   - {x: 8.993203, y: 2.3566551, z: -8.796325}
   m_Dering: 1
+--- !u!1 &881747634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 881747636}
+  - component: {fileID: 881747637}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &881747636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881747634}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.7521, y: 0.13, z: 8.21766}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &881747637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881747634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec28b30d99dd286408b292f3402f0c06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
+  pausePanel: {fileID: 1198143530}
+  restartConfirmPanel: {fileID: 147125645}
+  settingsPanel: {fileID: 652889326}
+  mainPanel: {fileID: 1235377077}
+  levelSelectPanel: {fileID: 522231187}
+  aboutPanel: {fileID: 1705543554}
+  mobileControls: {fileID: 915437309}
+  winPanel: {fileID: 1307217578}
+  losePanel: {fileID: 1843790997}
 --- !u!4 &883271034 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c62329c38bb8ad9448c2c824ee4f9906, type: 3}
@@ -10411,6 +10464,51 @@ Transform:
   - {fileID: 675622536}
   m_Father: {fileID: 1068245336}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &915437309
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 915437312}
+  - component: {fileID: 915437311}
+  m_Layer: 5
+  m_Name: JoysticksPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!222 &915437311
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915437309}
+  m_CullTransparentMesh: 1
+--- !u!224 &915437312
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915437309}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2104507200}
+  m_Father: {fileID: 1800505683}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &918857262
 GameObject:
   m_ObjectHideFlags: 0
@@ -12116,7 +12214,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1800505687}
+      - m_Target: {fileID: 881747637}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: CloseGameSettings
         m_Mode: 1
@@ -13761,8 +13859,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   crowText: {fileID: 216335882}
   npcText: {fileID: 775500116}
-  losePanel: {fileID: 1843790997}
-  winPanel: {fileID: 1307217578}
   maxHits: 3
   npc: {fileID: 1340486104}
   winSound: {fileID: 8300000, guid: 9541d9ca329596a4e990fb07a6892716, type: 3}
@@ -17135,7 +17231,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1800505687}
+      - m_Target: {fileID: 881747637}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -18969,7 +19065,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1800505687}
+      - m_Target: {fileID: 881747637}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: AskRestart
         m_Mode: 1
@@ -19406,7 +19502,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1800505687}
+      - m_Target: {fileID: 881747637}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: OpenAbout
         m_Mode: 1
@@ -20854,8 +20950,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1188557843}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 881747637}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
@@ -21610,7 +21706,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1800505687}
+      - m_Target: {fileID: 881747637}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: ExitGame
         m_Mode: 1
@@ -21950,7 +22046,6 @@ GameObject:
   - component: {fileID: 1800505686}
   - component: {fileID: 1800505685}
   - component: {fileID: 1800505684}
-  - component: {fileID: 1800505687}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -21983,6 +22078,7 @@ RectTransform:
   - {fileID: 522231188}
   - {fileID: 1705543555}
   - {fileID: 652889327}
+  - {fileID: 915437312}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -22053,24 +22149,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1800505687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1800505682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec28b30d99dd286408b292f3402f0c06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  pausePanel: {fileID: 1198143530}
-  restartConfirmPanel: {fileID: 147125645}
-  settingsPanel: {fileID: 652889326}
-  mainPanel: {fileID: 1235377077}
-  levelSelectPanel: {fileID: 522231187}
-  aboutPanel: {fileID: 1705543554}
 --- !u!1 &1803576128
 GameObject:
   m_ObjectHideFlags: 0
@@ -22750,7 +22828,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1800505687}
+      - m_Target: {fileID: 881747637}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: OpenLevels
         m_Mode: 1
@@ -22900,7 +22978,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1800505687}
+      - m_Target: {fileID: 881747637}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: BackToMain
         m_Mode: 1
@@ -23735,7 +23813,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1800505687}
+      - m_Target: {fileID: 881747637}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -24793,7 +24871,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 915437312}
     m_Modifications:
     - target: {fileID: 1663187150, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: starterAssetsInputs
@@ -24801,11 +24879,11 @@ PrefabInstance:
       objectReference: {fileID: 135756641613574975}
     - target: {fileID: 597308369130767402, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_Pivot.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 597308369130767402, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_Pivot.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 597308369130767402, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_RootOrder
@@ -24829,11 +24907,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597308369130767402, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 1600
       objectReference: {fileID: 0}
     - target: {fileID: 597308369130767402, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 738.46155
+      objectReference: {fileID: 0}
+    - target: {fileID: 597308369130767402, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4625
+      objectReference: {fileID: 0}
+    - target: {fileID: 597308369130767402, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4625
+      objectReference: {fileID: 0}
+    - target: {fileID: 597308369130767402, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4625
       objectReference: {fileID: 0}
     - target: {fileID: 597308369130767402, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24853,23 +24943,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597308369130767402, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 597308369130767402, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 597308369130767402, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 597308369130767402, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1170
       objectReference: {fileID: 0}
     - target: {fileID: 597308369130767402, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 540
       objectReference: {fileID: 0}
     - target: {fileID: 597308369130767402, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -24922,6 +25012,10 @@ PrefabInstance:
     - target: {fileID: 6482536982091937057, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_Color.r
       value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483554099135143963, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6751388636123340836, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_Name
@@ -25769,7 +25863,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1800505687}
+      - m_Target: {fileID: 881747637}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: StartLevel1
         m_Mode: 1
@@ -26232,7 +26326,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1800505687}
+      - m_Target: {fileID: 881747637}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: BackToMain
         m_Mode: 1
@@ -26628,6 +26722,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a868df66cf6d9e747a1fada98ddfa09b, type: 3}
   m_PrefabInstance: {fileID: 955018537}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &2104507200 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 597308369130767402, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
+  m_PrefabInstance: {fileID: 1979352518}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2115842096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26792,7 +26891,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1800505687}
+      - m_Target: {fileID: 881747637}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: ReturnToMainMenu
         m_Mode: 1
@@ -30105,7 +30204,6 @@ SceneRoots:
   - {fileID: 1221041499}
   - {fileID: 3893294199639930361}
   - {fileID: 1514849832}
-  - {fileID: 1979352518}
   - {fileID: 746329221}
   - {fileID: 421857846}
   - {fileID: 1899778920}
@@ -30125,3 +30223,4 @@ SceneRoots:
   - {fileID: 978781525}
   - {fileID: 1268533002}
   - {fileID: 434262170}
+  - {fileID: 881747636}

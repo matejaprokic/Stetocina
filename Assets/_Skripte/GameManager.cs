@@ -9,9 +9,6 @@ public class GameManager : MonoBehaviour
     public TMP_Text crowText;
     public TMP_Text npcText;
 
-    public GameObject losePanel;
-    public GameObject winPanel;
-
     int crowHits = 0;
     int npcHits = 0;
     public int maxHits = 3;
@@ -27,7 +24,6 @@ public class GameManager : MonoBehaviour
 
         UpdateUI();
 
-        losePanel.SetActive(false);
     }
 
     void UpdateUI()
@@ -57,21 +53,24 @@ public class GameManager : MonoBehaviour
 
     void LoseGame()
     {
-        losePanel.SetActive(true);
 
         Time.timeScale = 0f;
 
         AudioManager.Instance.PlaySFX(loseSound);
 
-    
+        UIManager.Instance.ShowLosePanel();
+
+
     }
 
     void WinGame()
     {
-        winPanel.SetActive(true);
+
         Time.timeScale = 0f;
 
         AudioManager.Instance.PlaySFX(winSound);
+
+        UIManager.Instance.ShowWinPanel();
     }
 
     public void RestartGame()
@@ -83,19 +82,6 @@ public class GameManager : MonoBehaviour
         );
     }
 
-    //public void TaskCompleted(RevengeTask.TaskType type)
-    //{
-    //    npcHits++;
-
-    //    UpdateUI();
-
-    //    npc.ReactToTask();
-
-    //    if (npcHits >= maxHits)
-    //    {
-    //        WinGame();
-    //    }
-    //}
 
     public void TaskCompleted()
     {
