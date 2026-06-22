@@ -4,9 +4,12 @@ public abstract class ItemPickup : MonoBehaviour, IInteractable
 {
     public string itemName;
 
+    public Sprite inventoryIcon;
+
     public Transform player;
 
     public float pickupDistance = 2f;
+
 
     public virtual void Interact()
     {
@@ -20,6 +23,11 @@ public abstract class ItemPickup : MonoBehaviour, IInteractable
             return;
 
         Inventory.Instance.AddItem(itemName);
+
+        InventoryUI.Instance.AddItem(
+            itemName,
+            inventoryIcon
+        );
 
         Destroy(gameObject);
     }

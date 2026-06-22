@@ -16,9 +16,19 @@ public abstract class InteractableTask : MonoBehaviour, IInteractable
         float dist = Vector3.Distance(transform.position, player.position);
         if (dist > interactDistance) return;
 
-        if (!CanComplete()) return;
+        if (!CanComplete())
+        {
+            InventoryUI.Instance.ClearSelection();
+
+            // kasnije:
+            // HintManager.Instance.ShowHint(...);
+
+            return;
+        }
 
         CompleteTask();
+
+        InventoryUI.Instance.ClearSelection();
     }
 
     protected virtual void CompleteTask()
@@ -30,5 +40,10 @@ public abstract class InteractableTask : MonoBehaviour, IInteractable
             bounce.CompleteTask();
 
         GameManager.Instance.TaskCompleted();
+
+        InventoryUI.Instance.MarkItemAsUsed("Hammer");
+        InventoryUI.Instance.MarkItemAsUsed("Key");
+
+        InventoryUI.Instance.ClearSelection();
     }
 }

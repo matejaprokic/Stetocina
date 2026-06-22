@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
     public GameObject winPanel;
     public GameObject losePanel;
 
+    public GameObject inventoryPanel;
+
 
     public static bool startGameDirectly = false;
 
@@ -51,11 +53,13 @@ public class UIManager : MonoBehaviour
         pausePanel.SetActive(false);
         restartConfirmPanel.SetActive(false);
         settingsPanel.SetActive(false);
+        //inventoryPanel.SetActive(false);
     }
 
     public void ShowMainMenu()
     {
         mobileControls.SetActive(false);
+        inventoryPanel.SetActive(false);
 
         Time.timeScale = 0f;
 
@@ -66,6 +70,7 @@ public class UIManager : MonoBehaviour
     public void OpenLevels()
     {
         mobileControls.SetActive(false);
+        inventoryPanel.SetActive(false);
 
         AudioManager.Instance.PlayUIClick();
         HideAllMenus();
@@ -76,6 +81,7 @@ public class UIManager : MonoBehaviour
     {
         Debug.Log("OPEN ABOUT");
         mobileControls.SetActive(false);
+        inventoryPanel.SetActive(false);
 
         HideAllMenus();
         aboutPanel.SetActive(true);
@@ -86,6 +92,7 @@ public class UIManager : MonoBehaviour
     public void BackToMain()
     {
         mobileControls.SetActive(false);
+        inventoryPanel.SetActive(false);
 
         HideAllMenus();
         mainPanel.SetActive(true);
@@ -97,7 +104,7 @@ public class UIManager : MonoBehaviour
 
         startGameDirectly = true;
 
-        
+        inventoryPanel.SetActive(true);
 
         Time.timeScale = 1f;
 
@@ -109,6 +116,7 @@ public class UIManager : MonoBehaviour
     public void OpenGameSettings()
     {
         mobileControls.SetActive(false);
+        inventoryPanel.SetActive(false);
 
         settingsPanel.SetActive(true);
         Time.timeScale = 0f;
@@ -117,6 +125,7 @@ public class UIManager : MonoBehaviour
     public void CloseGameSettings()
     {
         mobileControls.SetActive(true);
+        inventoryPanel.SetActive(false);
 
         settingsPanel.SetActive(false);
         Time.timeScale = 1f;
@@ -127,6 +136,7 @@ public class UIManager : MonoBehaviour
     public void PauseGame()
     {
         mobileControls.SetActive(false);
+        inventoryPanel.SetActive(false);
 
         AudioManager.Instance.PlayUIClick();
         pausePanel.SetActive(true);
@@ -136,6 +146,7 @@ public class UIManager : MonoBehaviour
     public void ResumeGame()
     {
         mobileControls.SetActive(true);
+        inventoryPanel.SetActive(true);
 
         pausePanel.SetActive(false);
         Time.timeScale = 1f;
@@ -144,6 +155,7 @@ public class UIManager : MonoBehaviour
     public void AskRestart()
     {
         mobileControls.SetActive(false);
+        inventoryPanel.SetActive(false);
 
         restartConfirmPanel.SetActive(true);
         Time.timeScale = 0f;
@@ -152,6 +164,7 @@ public class UIManager : MonoBehaviour
     public void CancelRestart()
     {
         mobileControls.SetActive(true);
+        inventoryPanel.SetActive(true);
 
         restartConfirmPanel.SetActive(false);
         Time.timeScale = 1f;
@@ -160,6 +173,7 @@ public class UIManager : MonoBehaviour
     public void RestartGame()
     {
         mobileControls.SetActive(true);
+        inventoryPanel.SetActive(true);
 
         startGameDirectly = true; 
 
@@ -171,6 +185,7 @@ public class UIManager : MonoBehaviour
     public void ReturnToMainMenu()
     {
         mobileControls.SetActive(false);
+        inventoryPanel.SetActive(false);
 
         startGameDirectly = false;
 
@@ -191,12 +206,14 @@ public class UIManager : MonoBehaviour
     public void ShowWinPanel()
     {
         mobileControls.SetActive(false);
+        inventoryPanel.SetActive(false);
         winPanel.SetActive(true);
     }
 
     public void ShowLosePanel()
     {
         mobileControls.SetActive(false);
+        inventoryPanel.SetActive(false);
         losePanel.SetActive(true);
     }
 }
