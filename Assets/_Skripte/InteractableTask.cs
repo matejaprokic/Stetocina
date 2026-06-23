@@ -11,6 +11,8 @@ public abstract class InteractableTask : MonoBehaviour, IInteractable
 
     public Sprite hintSprite;
 
+    public string[] requiredItems;
+
     public void Interact()
     {
         if (done) return;
@@ -47,8 +49,15 @@ public abstract class InteractableTask : MonoBehaviour, IInteractable
 
         GameManager.Instance.TaskCompleted();
 
-        InventoryUI.Instance.MarkItemAsUsed("Hammer");
-        InventoryUI.Instance.MarkItemAsUsed("Key");
+        //InventoryUI.Instance.MarkItemAsUsed("Cigara");
+        //InventoryUI.Instance.MarkItemAsUsed("Novine");
+        //InventoryUI.Instance.MarkItemAsUsed("Srafciger");
+
+        foreach (string item in requiredItems)
+        {
+            InventoryUI.Instance.MarkItemAsUsed(item);
+        }
+
 
         InventoryUI.Instance.ClearSelection();
 

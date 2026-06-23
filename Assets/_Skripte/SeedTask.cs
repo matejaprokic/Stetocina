@@ -4,7 +4,9 @@ public class SeedTask : InteractableTask
 {
     public override bool CanComplete()
     {
-        return Inventory.Instance.HasItem("Water")
-            && Inventory.Instance.HasItem("Shovel");
+        return InventoryUI.Instance.HasSelectedItems(
+        "Lopata",
+        "Vreca"
+         );
     }
 }

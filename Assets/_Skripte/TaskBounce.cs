@@ -4,10 +4,10 @@ public class TaskBounce : MonoBehaviour
 {
     public Transform player;
 
-    public float showDistance = 2f;
+    public float showDistance = 4f;
 
-    public float bounceHeight = 0.05f;
-    public float bounceSpeed = 4f;
+    public float bounceHeight = 0.25f;
+    public float bounceSpeed = 5f;
 
     Vector3 startPos;
 

@@ -4,7 +4,9 @@ public class EggTask : InteractableTask
 {
     public override bool CanComplete()
     {
-        return Inventory.Instance.HasItem("Key")
-            && Inventory.Instance.HasItem("Hammer");
+        return InventoryUI.Instance.HasSelectedItems(
+        "Srafciger",
+        "Kukuruz"
+         );
     }
 }
