@@ -9,6 +9,8 @@ public abstract class InteractableTask : MonoBehaviour, IInteractable
 
     public abstract bool CanComplete();
 
+    public Sprite hintSprite;
+
     public void Interact()
     {
         if (done) return;
@@ -18,10 +20,14 @@ public abstract class InteractableTask : MonoBehaviour, IInteractable
 
         if (!CanComplete())
         {
+            Debug.Log("SHOWING HINT");
+
             InventoryUI.Instance.ClearSelection();
 
             // kasnije:
             // HintManager.Instance.ShowHint(...);
+
+            HintTooltipUI.Instance.ShowHint(hintSprite);
 
             return;
         }
@@ -45,5 +51,7 @@ public abstract class InteractableTask : MonoBehaviour, IInteractable
         InventoryUI.Instance.MarkItemAsUsed("Key");
 
         InventoryUI.Instance.ClearSelection();
+
+        
     }
 }
