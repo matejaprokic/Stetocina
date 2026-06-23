@@ -125,7 +125,7 @@ public class UIManager : MonoBehaviour
     public void CloseGameSettings()
     {
         mobileControls.SetActive(true);
-        inventoryPanel.SetActive(false);
+        inventoryPanel.SetActive(true);
 
         settingsPanel.SetActive(false);
         Time.timeScale = 1f;
