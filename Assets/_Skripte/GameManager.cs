@@ -28,8 +28,10 @@ public class GameManager : MonoBehaviour
 
     void UpdateUI()
     {
-        crowText.text = "Čovek: " + crowHits + "/3";
-        npcText.text = "Vrana: " + npcHits + "/3";
+        //crowText.text = "Čovek: " + crowHits + "/3";
+        crowText.text = crowHits + "/3";
+        //npcText.text = "Vrana: " + npcHits + "/3";
+        npcText.text = npcHits + "/3";
     }
 
     public void CrowCaught()
