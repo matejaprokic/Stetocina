@@ -13,21 +13,14 @@ public abstract class ItemPickup : MonoBehaviour, IInteractable
 
     public virtual void Interact()
     {
-        float dist =
-            Vector3.Distance(
-                transform.position,
-                player.position
-            );
+        float dist = Vector3.Distance(transform.position,player.position);
 
         if (dist > pickupDistance)
             return;
 
         Inventory.Instance.AddItem(itemName);
 
-        InventoryUI.Instance.AddItem(
-            itemName,
-            inventoryIcon
-        );
+        InventoryUI.Instance.AddItem(itemName, inventoryIcon);
 
         Destroy(gameObject);
     }

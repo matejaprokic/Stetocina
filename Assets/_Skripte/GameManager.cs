@@ -28,9 +28,7 @@ public class GameManager : MonoBehaviour
 
     void UpdateUI()
     {
-        //crowText.text = "Čovek: " + crowHits + "/3";
         crowText.text = crowHits + "/3";
-        //npcText.text = "Vrana: " + npcHits + "/3";
         npcText.text = npcHits + "/3";
     }
 
@@ -79,9 +77,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
 
-        SceneManager.LoadScene(
-            SceneManager.GetActiveScene().buildIndex
-        );
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 

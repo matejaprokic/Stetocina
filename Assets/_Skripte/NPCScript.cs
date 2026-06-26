@@ -22,7 +22,6 @@ public class NPCBehaviour : MonoBehaviour
     bool reactingToTask = false;
 
     private bool isAttacking = false;
-    //bool attackInProgress = false;
     float attackCooldown = 0f;
     public float attackCooldownTime = 2f;
 
@@ -44,9 +43,7 @@ public class NPCBehaviour : MonoBehaviour
         if (attackCooldown > 0)
             attackCooldown -= Time.deltaTime;
 
-        float dist =
-            Vector3.Distance(transform.position,
-            player.position);
+        float dist = Vector3.Distance(transform.position, player.position);
 
         // PLAYER SE VIDI
         if (dist < visionDistance)
@@ -60,10 +57,7 @@ public class NPCBehaviour : MonoBehaviour
         {
             animator.SetBool("IsChasing", true);
 
-            animator.SetFloat(
-                "Speed",
-                agent.velocity.magnitude
-            );
+            animator.SetFloat("Speed", agent.velocity.magnitude);
 
             agent.SetDestination(player.position);
 
@@ -110,14 +104,9 @@ public class NPCBehaviour : MonoBehaviour
     {
         if (patrolPoints.Length == 0) return;
 
-        agent.SetDestination(
-            patrolPoints[patrolIndex].position
-        );
+        agent.SetDestination(patrolPoints[patrolIndex].position);
 
-        if (Vector3.Distance(
-            transform.position,
-            patrolPoints[patrolIndex].position
-            ) < 1f)
+        if (Vector3.Distance(transform.position,patrolPoints[patrolIndex].position) < 1f)
         {
             patrolIndex =
                 (patrolIndex + 1)
@@ -136,18 +125,12 @@ public class NPCBehaviour : MonoBehaviour
         agent.isStopped = false;
     }
 
-    //public void PlayAttackSound()
-    //{
-    //    AudioManager.Instance.PlaySFX(attackSound);
-    //}
+
 
     IEnumerator AttackRoutine()
     {
         isAttacking = true;
-        //attackInProgress = true;
-
-        
-
+      
         agent.isStopped = true;
 
         animator.SetTrigger("Catch");

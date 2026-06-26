@@ -16,14 +16,11 @@ public class InventoryUI : MonoBehaviour
 
     public Slot[] slots;
 
-    Dictionary<string, Sprite> itemSprites =
-        new Dictionary<string, Sprite>();
+    Dictionary<string, Sprite> itemSprites = new Dictionary<string, Sprite>();
 
-    List<string> inventoryItems =
-        new List<string>();
+    List<string> inventoryItems = new List<string>();
 
-    HashSet<string> selectedItems =
-        new HashSet<string>();
+    HashSet<string> selectedItems = new HashSet<string>();
 
     HashSet<string> usedItems = new HashSet<string>();
 
@@ -83,11 +80,9 @@ public class InventoryUI : MonoBehaviour
         {
             if (i < inventoryItems.Count)
             {
-                string item =
-                    inventoryItems[i];
+                string item = inventoryItems[i];
 
-                slots[i].icon.sprite =
-                    itemSprites[item];
+                slots[i].icon.sprite = itemSprites[item];
 
                 slots[i].icon.enabled = true;
             }
@@ -103,8 +98,7 @@ public class InventoryUI : MonoBehaviour
         if (slotIndex >= inventoryItems.Count)
             return;
 
-        string item =
-            inventoryItems[slotIndex];
+        string item = inventoryItems[slotIndex];
 
         if (usedItems.Contains(item))
             return;
@@ -120,8 +114,6 @@ public class InventoryUI : MonoBehaviour
             slots[slotIndex].selectionBorder.gameObject.SetActive(true);
         }
 
-        //if (usedItems.Contains(item))
-        //    return;
     }
 
     public bool HasSelectedItems(
@@ -156,10 +148,8 @@ public class InventoryUI : MonoBehaviour
         {
             if (inventoryItems[i] == itemName)
             {
-                // disable icon interaction
                 slots[i].selectionBorder.gameObject.SetActive(false);
 
-                // show grey overlay
                 if (slots[i].usedOverlay != null)
                     slots[i].usedOverlay.gameObject.SetActive(true);
             }

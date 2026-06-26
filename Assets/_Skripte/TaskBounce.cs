@@ -26,19 +26,11 @@ public class TaskBounce : MonoBehaviour
             return;
         }
 
-        float dist =
-            Vector3.Distance(
-                player.position,
-                transform.position
-            );
+        float dist = Vector3.Distance(player.position, transform.position);
 
         if (dist <= showDistance)
         {
-            transform.localPosition =
-                startPos +
-                Vector3.up *
-                Mathf.Sin(Time.time * bounceSpeed)
-                * bounceHeight;
+            transform.localPosition = startPos + Vector3.up * Mathf.Sin(Time.time * bounceSpeed) * bounceHeight;
         }
         else
         {

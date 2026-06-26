@@ -26,9 +26,6 @@ public abstract class InteractableTask : MonoBehaviour, IInteractable
 
             InventoryUI.Instance.ClearSelection();
 
-            // kasnije:
-            // HintManager.Instance.ShowHint(...);
-
             HintTooltipUI.Instance.ShowHint(hintSprite);
 
             return;
@@ -49,18 +46,12 @@ public abstract class InteractableTask : MonoBehaviour, IInteractable
 
         GameManager.Instance.TaskCompleted();
 
-        //InventoryUI.Instance.MarkItemAsUsed("Cigara");
-        //InventoryUI.Instance.MarkItemAsUsed("Novine");
-        //InventoryUI.Instance.MarkItemAsUsed("Srafciger");
-
         foreach (string item in requiredItems)
         {
             InventoryUI.Instance.MarkItemAsUsed(item);
         }
 
-
         InventoryUI.Instance.ClearSelection();
-
         
     }
 }

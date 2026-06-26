@@ -18,8 +18,7 @@ public class VranaTapInput : MonoBehaviour
 
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                IInteractable interactable =
-                    hit.collider.GetComponent<IInteractable>();
+                IInteractable interactable = hit.collider.GetComponent<IInteractable>();
 
                 if (interactable != null)
                 {

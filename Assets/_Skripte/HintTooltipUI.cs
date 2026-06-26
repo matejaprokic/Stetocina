@@ -11,8 +11,7 @@ public class HintTooltipUI : MonoBehaviour
 
     public Transform player;
 
-    public Vector3 worldOffset =
-        new Vector3(0f, 2f, 0f);
+    public Vector3 worldOffset = new Vector3(0f, 2f, 0f);
 
     Coroutine currentRoutine;
 
@@ -28,13 +27,9 @@ public class HintTooltipUI : MonoBehaviour
         if (!tooltipPanel.activeSelf)
             return;
 
-        Vector3 screenPos =
-            Camera.main.WorldToScreenPoint(
-                player.position + worldOffset
-            );
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(player.position + worldOffset);
 
-        tooltipPanel.transform.position =
-            screenPos;
+        tooltipPanel.transform.position = screenPos;
     }
 
     public void ShowHint(
@@ -47,15 +42,11 @@ public class HintTooltipUI : MonoBehaviour
         if (currentRoutine != null)
             StopCoroutine(currentRoutine);
 
-        tooltipImage.sprite =
-            hintSprite;
+        tooltipImage.sprite = hintSprite;
 
         tooltipPanel.SetActive(true);
 
-        currentRoutine =
-            StartCoroutine(
-                HideAfter(duration)
-            );
+        currentRoutine = StartCoroutine(HideAfter(duration));
     }
 
     IEnumerator HideAfter(float time)

@@ -28,7 +28,6 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        //PlayerPrefs.DeleteAll();
 
         Debug.Log("AudioManager Start called");
         Debug.Log("Master: " + PlayerPrefs.GetFloat("master", 1f));
@@ -68,19 +67,11 @@ public class AudioManager : MonoBehaviour
 
     public void PlayUIClick()
     {
-        //Debug.Log("UIClick called");
-
-        //Debug.Log("sfxSource = " + sfxSource);
-        //Debug.Log("musicSource = " + musicSource);
 
         PlaySFX(uiClick);
     }
 
-    //void OnLevelWasLoaded(int level)
-    //{
-    //    musicSource = GameObject.Find("MusicAudioSource")?.GetComponent<AudioSource>();
-    //    sfxSource = GameObject.Find("SFXAudioSource")?.GetComponent<AudioSource>();
-    //}
+
 
     public void SetMasterVolume(float value)
     {

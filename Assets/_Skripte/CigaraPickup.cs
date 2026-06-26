@@ -2,5 +2,8 @@ using UnityEngine;
 
 public class CigaraPickup : ItemPickup
 {
-    void Awake() => itemName = "Cigara";
+    void Awake()
+    {
+        itemName = "Cigara";
+    }
 }

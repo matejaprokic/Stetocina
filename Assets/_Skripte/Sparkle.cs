@@ -27,35 +27,22 @@ public class Sparkle : MonoBehaviour
 
     void Update()
     {
-        float dist =
-            Vector3.Distance(
-                player.position,
-                transform.parent.position
-            );
+        float dist = Vector3.Distance(player.position, transform.parent.position);
 
         sr.enabled = dist <= showDistance;
 
         if (!sr.enabled)
             return;
 
-        transform.localPosition =
-            startPos +
-            Vector3.up *
-            Mathf.Sin(Time.time * floatSpeed)
-            * floatHeight;
+        transform.localPosition = startPos + Vector3.up * Mathf.Sin(Time.time * floatSpeed) * floatHeight;
 
-        float pulse =
-            1 +
-            Mathf.Sin(Time.time * scaleSpeed)
-            * scaleAmount;
+        float pulse = 1 + Mathf.Sin(Time.time * scaleSpeed) * scaleAmount;
 
-        transform.localScale =
-            startScale * pulse;
+        transform.localScale = startScale * pulse;
     }
 
     void LateUpdate()
     {
-        transform.forward =
-            Camera.main.transform.forward;
+        transform.forward = Camera.main.transform.forward;
     }
 }

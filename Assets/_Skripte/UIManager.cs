@@ -53,7 +53,6 @@ public class UIManager : MonoBehaviour
         pausePanel.SetActive(false);
         restartConfirmPanel.SetActive(false);
         settingsPanel.SetActive(false);
-        //inventoryPanel.SetActive(false);
     }
 
     public void ShowMainMenu()
